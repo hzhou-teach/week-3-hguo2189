@@ -1,0 +1,32 @@
+#Henry G.
+#10-15 minutes
+#Still relearning Python, so I had to search some things up
+class Solution:
+    def reverse(self, x: int) -> int:
+        digits = []
+        save = x
+        if x > 0:
+            while x > 0:
+                digits.append(x % 10)
+                x = x // 10
+            y = 0
+            for digit in digits:
+                y = y * 10 + digit
+            if 2**31 - 1 > y:
+                return y
+            else:
+                return 0
+        elif x < 0:
+            x = abs(x)
+            while x > 0:
+                digits.append(x % 10)
+                x = x // 10
+            y = 0
+            for digit in digits:
+                y = y * 10 + digit
+            if 2**31 - 1 > y:
+                return y * -1
+            else:
+                return 0
+        else:
+            return 0

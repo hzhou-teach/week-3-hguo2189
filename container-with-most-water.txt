@@ -1,0 +1,18 @@
+#Henry G
+#20 minutes, but doesn't work
+#One of the tests was a very large list, so how do I fix the code so it works?
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        n = 0
+        cw = 1
+        maxim = 0
+        while cw < len(height):
+            while cw + n < len(height):
+                if cw * min(height[n],height[n + cw]) > maxim:
+                    maxim = cw * min(height[n],height[n + cw])
+                    n = n + 1
+                else:
+                    n = n + 1
+            cw = cw + 1
+            n = 0
+        return maxim
